@@ -1,4 +1,6 @@
-import { commands as vscodeCommands, ExtensionContext, window } from 'vscode';
+import { readFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { commands as vscodeCommands, ExtensionContext, window, workspace } from 'vscode';
 
 const changeColorCommands = [
   {
@@ -38,12 +40,21 @@ const changeColorCommands = [
     color: '#000000',
   },
 ];
+const css = readFileSync(
+  join(dirname(require.main?.filename ?? ''), '/vs/workbench/workbench.desktop.main.css'),
+  'utf-8',
+);
+
+// .tab.active
+// border-bottom: 8px solid black;
 
 const activate = (context: ExtensionContext) => {
   changeColorCommands.forEach(({ action, color }) => {
     const disposable = vscodeCommands.registerCommand(`tab-color.changeColor.${action}`, () => {
       window.showInformationMessage(`${action} - ${color}`);
     });
+
+    console.log(css, window.activeTextEditor);
 
     context.subscriptions.push(disposable);
   });
