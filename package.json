@@ -34,14 +34,115 @@
     "vscode": "^1.74.0"
   },
   "activationEvents": [
-    "onCommand:tab-color.helloWorld"
+    "onCommand:tab-color.changeColor.white",
+    "onCommand:tab-color.changeColor.yellow",
+    "onCommand:tab-color.changeColor.red",
+    "onCommand:tab-color.changeColor.magenta",
+    "onCommand:tab-color.changeColor.blue",
+    "onCommand:tab-color.changeColor.cyan",
+    "onCommand:tab-color.changeColor.green",
+    "onCommand:tab-color.changeColor.black",
+    "onCommand:tab-color.changeColor.reset"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "tab-color.helloWorld",
-        "title": "Hello World"
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.white",
+        "title": "White"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.yellow",
+        "title": "Yellow"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.red",
+        "title": "Red"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.magenta",
+        "title": "Magenta"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.blue",
+        "title": "Blue"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.cyan",
+        "title": "Cyan"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.green",
+        "title": "Green"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.black",
+        "title": "Black"
+      },
+      {
+        "category": "Tab-Color",
+        "command": "tab-color.changeColor.reset",
+        "title": "Reset"
       }
+    ],
+    "menus": {
+      "editor/title/context": [
+        {
+					"submenu": "editor/title/context/tab-color",
+          "group": "6_tab-color@1"
+        }
+      ],
+			"editor/title/context/tab-color": [
+				{
+          "command": "tab-color.changeColor.white",
+          "group": "1_tab-color@1"
+				},
+        {
+          "command": "tab-color.changeColor.yellow",
+          "group": "1_tab-color@2"
+        },
+        {
+          "command": "tab-color.changeColor.red",
+          "group": "1_tab-color@3"
+        },
+        {
+          "command": "tab-color.changeColor.magenta",
+          "group": "1_tab-color@4"
+        },
+        {
+          "command": "tab-color.changeColor.blue",
+          "group": "1_tab-color@5"
+        },
+        {
+          "command": "tab-color.changeColor.cyan",
+          "group": "1_tab-color@6"
+        },
+        {
+          "command": "tab-color.changeColor.green",
+          "group": "1_tab-color@7"
+        },
+        {
+          "command": "tab-color.changeColor.black",
+          "group": "1_tab-color@8"
+        },
+				{
+          "command": "tab-color.changeColor.reset",
+          "group": "1_tab-color@9"
+				}
+			]
+    },
+    "submenus": [
+			{
+				"id": "editor/title/context/tab-color",
+				"label": "Change Color"
+			}
     ]
   }
 }
